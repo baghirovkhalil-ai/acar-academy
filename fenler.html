@@ -180,8 +180,8 @@ nav a[aria-current=page]{color:var(--ink)}
 .qtop{display:flex;justify-content:space-between;align-items:center;padding:18px 26px;border-bottom:2.5px solid var(--ink);background:var(--sky);font-weight:700}
 .qprog{flex:1;max-width:240px;height:10px;border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin-left:16px;background:#fff}
 .qprog i{display:block;height:100%;width:0;background:var(--sun);transition:width .5s cubic-bezier(.3,1.3,.5,1)}
-.qbody{position:relative;min-height:400px}
-.qstep{position:absolute;inset:0;padding:30px 26px;opacity:0;transform:translateX(60px);pointer-events:none;transition:opacity .4s,transform .5s cubic-bezier(.2,.9,.3,1)}
+.qbody{position:relative;display:grid}
+.qstep{grid-area:1/1;position:relative;padding:30px 26px;opacity:0;transform:translateX(60px);pointer-events:none;transition:opacity .4s,transform .5s cubic-bezier(.2,.9,.3,1)}
 .qstep.on{opacity:1;transform:none;pointer-events:auto}
 .qstep.gone{transform:translateX(-60px)}
 .qstep h3{font-size:clamp(1.4rem,3.5vw,2rem);margin-bottom:20px}
@@ -198,7 +198,7 @@ nav a[aria-current=page]{color:var(--ink)}
 .qres p{margin:0 auto 22px;color:var(--ink2)}
 .qres .cta-row{justify-content:center}
 .qback{background:none;border:0;font:inherit;font-weight:700;color:var(--blue);cursor:pointer;text-decoration:underline}
-@media(max-width:620px){.opts{grid-template-columns:1fr}.qbody{min-height:470px}}
+@media(max-width:620px){.opts{grid-template-columns:1fr}}
 
 /* faq */
 .faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
@@ -343,6 +343,76 @@ body.calc-page .fwa{bottom:110px}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
  .rv{opacity:1;transform:none}.hero h1 .l,.hero .lead,.hero .cta-row,.trust{opacity:1;transform:none}
  .kcur{display:none!important}
+}
+
+@media(max-width:700px){
+ body{font-size:16px}
+ section.block{padding:60px 0}
+ h2{font-size:clamp(1.75rem,8vw,2.3rem)}
+ .lead{font-size:1.04rem}
+ .hero{padding:34px 0 56px}
+ .hero h1{font-size:clamp(2.6rem,13vw,3.4rem)}
+ .hero .lead{margin:18px 0 24px}
+ .hero .cta-row .btn{flex:1 1 auto;justify-content:center}
+ .trust{margin-top:22px}
+ .vault{max-width:300px;margin:18px auto 0}
+ .door{transform-origin:50% 50%;transition:transform .9s cubic-bezier(.5,0,.15,1),opacity .6s .25s}
+ .vault.open .door{transform:scale(1.25) rotate(25deg);opacity:0}
+ .vault .frame{box-shadow:7px 7px 0 var(--cyan)}
+ .inside .tg{font-size:.72rem;padding:4px 9px}
+ .board-wrap{padding:56px 0}
+ .board{grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;margin:26px 0 16px}
+ .tile{aspect-ratio:auto;height:44px;font-size:1.05rem;border-radius:4px}
+ .board-meta{font-size:.92rem}
+ .statrow{margin-top:40px;padding-top:30px}
+ .hscroll .head{margin-bottom:18px}
+ .hscroll .head h2{font-size:1.75rem}
+ .hbar{width:100%}
+ .pcard{padding:24px;border-radius:24px;box-shadow:6px 6px 0 var(--ink);min-height:min(440px,62svh)}
+ .pcard .pn{font-size:4.2rem;margin-bottom:14px}
+ .pcard h3{font-size:1.4rem}
+ .pcard p{font-size:.95rem}
+ .online{padding:60px 0}
+ .globe{width:min(270px,76vw);box-shadow:7px 7px 0 var(--ink)}
+ .quiz-sec{padding:60px 0}
+ .quiz{border-radius:24px;box-shadow:6px 6px 0 var(--blue)}
+ .qtop{padding:14px 18px;font-size:.92rem}
+ .qstep{padding:22px 18px}
+ .qstep h3{font-size:1.4rem;margin-bottom:16px}
+ .opt{padding:13px 14px;font-size:.95rem}
+ .qres .cta-row{flex-direction:column;align-items:center;gap:14px}
+ .qa button{padding:16px;font-size:.98rem}
+ .qa .ans p{padding:0 16px 18px}
+ .ctabox{padding:46px 20px;border-radius:26px;box-shadow:7px 7px 0 var(--ink)}
+ .ctabox .fk.a{display:none}
+ .ctabox .fk.b{width:38px;right:12px;bottom:12px}
+ .ctabox h2{font-size:1.9rem}
+ .ctabox .cta-row .btn{width:100%;justify-content:center}
+ .phead{padding:30px 0 40px}
+ .phead .wrap{display:block;position:relative}
+ .phead .crumbs{margin-bottom:14px}
+ .phead h1{font-size:clamp(2.3rem,11vw,3rem);padding-right:70px}
+ .bigkey{position:absolute;right:20px;top:-6px;width:58px;max-width:58px}
+ .ring-wrap{display:none}
+ .prow{box-shadow:5px 5px 0 var(--c)}
+ .prow .btn{justify-self:start}
+ .lang{padding:26px}
+ .lang .flagw{font-size:4.2rem}
+ .chips{gap:8px}
+ .chip{font-size:.92rem;padding:10px 13px 10px 10px}
+ .summary{box-shadow:5px 5px 0 var(--cyan);border-radius:20px}
+ .quote{font-size:2rem}
+ .val{padding:24px;box-shadow:5px 5px 0 var(--ink)}
+ .form{padding:22px;border-radius:24px;box-shadow:6px 6px 0 var(--cyan)}
+ .cinfo strong{font-size:.98rem;word-break:break-word}
+ .map{height:200px}
+ footer{padding:60px 0 96px;margin-top:70px}
+ .f-huge{font-size:26vw;margin-bottom:30px}
+ .f-bottom{flex-direction:column}
+ .fwa{width:54px;height:54px;right:14px;bottom:14px;border-radius:16px}
+ .fwa svg{width:27px;height:27px}
+ body.calc-page .fwa{bottom:104px}
+ nav a{font-size:1.7rem}
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "Açar Academy", "alternateName": ["Achar Academy", "Açar Akademiya"], "url": "https://acharacademy.az/", "logo": "https://acharacademy.az/logo.png", "description": "Online təhsil mərkəzi: məktəbəqədər və ibtidai hazırlıq, 5–9-cu sinif təkmilləşdirmə, liseylərə və abituriyent hazırlığı, magistratura və dövlət qulluğu hazırlığı.", "telephone": "+994555435311", "address": {"@type": "PostalAddress", "addressLocality": "Bakı", "addressCountry": "AZ"}, "sameAs": ["https://www.instagram.com/onlinetehsil.achar_academy/"], "contactPoint": {"@type": "ContactPoint", "telephone": "+994555435311", "contactType": "Qeydiyyat", "availableLanguage": ["az", "ru"]}}</script>
